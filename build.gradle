@@ -27,7 +27,38 @@ sourceSets.main.resources {
 }
 
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+    maven {
+        url = "https://maven.createmod.net"
+    }
+    maven {
+        url = "https://maven.ithundxr.dev/snapshots"
+    }
+    maven {
+        url = "https://cursemaven.com"
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+    maven {
+        // Sable, Simulated, Aeronautics, Offroad
+        name = "RyanHCode"
+        url = "https://maven.ryanhcode.dev/releases"
+    }
+    maven {
+        url = "https://maven.squiddev.cc"
+        content {
+            includeGroup("cc.tweaked")
+        }
+    }
 }
 
 base {
@@ -118,27 +149,27 @@ configurations {
 }
 
 dependencies {
-    // Example optional mod dependency with JEI
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
-    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
-    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
+    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
+    implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    implementation("curse.maven:create-aeroworks-1522473:8185390")
+    // Create Aeronautics stack. The Modrinth "bundled" jar only contains nested
+    // jar-in-jar files (no classes at the top level), so it cannot be compiled
+    // against - the individual class jars from maven.ryanhcode.dev are used instead.
+    implementation("dev.eriksonn.aeronautics:aeronautics-neoforge-${minecraft_version}:${aeronautics_version}")
+    implementation("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
+    implementation("dev.simulated_team.simulated:simulated-neoforge-${minecraft_version}:${simulated_version}")
+    localRuntime("dev.ryanhcode.offroad:offroad-neoforge-${minecraft_version}:${offroad_version}")
 
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
+    // Reference mod (Vector Thruster / Tilt Adapter); only needed in the dev runtime.
+    localRuntime("curse.maven:create-propulsion-simulated-1522736:8099955")
 
-    // Example mod dependency using a file as dependency
-    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
-
-    // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
-
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    compileOnly("cc.tweaked:cc-tweaked-$minecraft_version-common-api:$cctVersion")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -1,0 +1,36 @@
+{
+  "itemGroup.create_tilting_control": "Create: Tilting Control",
+
+  "create_tilting_control.gui.tilting_bearing.max_tilt": "Max Tilt",
+  "create_tilting_control.gui.tilting_bearing.tilt_speed": "Tilt Speed",
+  "create_tilting_control.gui.direction.north": "R.",
+  "create_tilting_control.gui.direction.south": "L.",
+  "create_tilting_control.gui.direction.east": "E.",
+  "create_tilting_control.gui.direction.west": "D.",
+  "create_tilting_control.gui.direction.up": "L.",
+  "create_tilting_control.gui.direction.down": "R.",
+
+  "create_tilting_control.subtitle.tilting_bearing_tilt": "Tilting Bearing adjusts",
+
+  "create_tilting_control.configuration.title": "Create: Tilting Control Configs",
+  "create_tilting_control.configuration.minTiltAngle": "Minimum Selectable Max Tilt",
+  "create_tilting_control.configuration.maxTiltAngle": "Maximum Selectable Max Tilt",
+  "create_tilting_control.configuration.minTiltSpeed": "Minimum Selectable Tilt Speed",
+  "create_tilting_control.configuration.maxTiltSpeed": "Maximum Selectable Tilt Speed",
+  "create_tilting_control.configuration.stressImpact": "Stress Impact per Sail",
+
+  "create_tilting_control.gui.tilting_bearing.info.title": "Tilting Bearing Usage",
+  "create_tilting_control.gui.tilting_bearing.info.line1": "Each side of the bearing shows a colored gem, matching the columns above:",
+  "create_tilting_control.gui.tilting_bearing.info.line2": "§cRedstone§7,  §9Lapis§7,  §bDiamond§7,  §aEmerald§7",
+  "create_tilting_control.gui.tilting_bearing.info.line3": "Set a Redstone Link frequency under a gem to bind that side.",
+  "create_tilting_control.gui.tilting_bearing.info.line4": "Powering that frequency tilts the propeller toward its side. Scales with signal strength.",
+
+  "block.create_tilting_control.tilting_bearing": "Tilting Bearing",
+  "block.create_tilting_control.tilting_bearing.tooltip.summary": "A _Propeller Bearing_ whose spinning propeller can be _tilted_ in any direction",
+  "block.create_tilting_control.tilting_bearing.tooltip.condition1": "When R-Clicked with an empty hand",
+  "block.create_tilting_control.tilting_bearing.tooltip.behaviour1": "Assembles the propeller contraption. Click again while running to disassemble.",
+  "block.create_tilting_control.tilting_bearing.tooltip.condition2": "When Shift + R-Clicked",
+  "block.create_tilting_control.tilting_bearing.tooltip.behaviour2": "Opens the configuration screen: Which contains the four link frequencies used for tilting controls, and some misc. configurations",
+  "block.create_tilting_control.tilting_bearing.tooltip.condition3": "When a side's Redstone Link is powered",
+  "block.create_tilting_control.tilting_bearing.tooltip.behaviour3": "Tilts the propeller toward that side. A _stronger signal_ means _more tilt_, up to _Max Tilt_. Opposing sides cancel out."
+}
