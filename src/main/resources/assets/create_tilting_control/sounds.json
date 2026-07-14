@@ -1,8 +1,16 @@
 {
-  "tilting_bearing_tilt": {
-    "subtitle": "create_tilting_control.subtitle.tilting_bearing_tilt",
+  "tilting_propeller_bearing_tilt": {
+    "subtitle": "create_tilting_control.subtitle.tilting_propeller_bearing_tilt",
     "sounds": [
-      { "name": "create_tilting_control:block/tilting_bearing/tilt", "stream": false }
+      { "name": "create_tilting_control:block/tilting_propeller_bearing/tilt", "stream": false }
+    ]
+  },
+  "soar_v2": {
+    "sounds":[
+      {
+        "name": "create_tilting_control:soar_v2",
+        "stream": true
+      }
     ]
   }
 }

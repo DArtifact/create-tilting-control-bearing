@@ -15,7 +15,7 @@
     "F": { "item": "create:shaft" }
   },
   "result": {
-    "id": "create_tilting_control:tilting_bearing",
+    "id": "create_tilting_control:tilting_propeller_bearing",
     "count": 1
   }
 }

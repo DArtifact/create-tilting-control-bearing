@@ -1,4 +1,4 @@
-package net.birdsys.createtiltingcontrol.client;
+package net.birdsys.createtiltingcontrol.client.tilting_propeller;
 
 import org.joml.Quaternionf;
 
@@ -8,7 +8,7 @@ import com.simibubi.create.content.contraptions.bearing.BearingBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 
 import dev.engine_room.flywheel.api.visualization.VisualizationManager;
-import net.birdsys.createtiltingcontrol.content.tilting_bearing.TiltingBearingBlockEntity;
+import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.TiltingPropellerBearingBlockEntity;
 import net.birdsys.createtiltingcontrol.registry.ModPartialModels;
 import net.createmod.catnip.math.AngleHelper;
 import net.createmod.catnip.render.CachedBuffers;
@@ -21,15 +21,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
-public class TiltingBearingRenderer extends KineticBlockEntityRenderer<TiltingBearingBlockEntity> {
+public class TiltingPropellerBearingRenderer extends KineticBlockEntityRenderer<TiltingPropellerBearingBlockEntity> {
 
-    public TiltingBearingRenderer(BlockEntityRendererProvider.Context context) {
+    public TiltingPropellerBearingRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
     }
 
     @Override
-    protected void renderSafe(TiltingBearingBlockEntity be, float partialTicks, PoseStack ms,
-            MultiBufferSource buffer, int light, int overlay) {
+    protected void renderSafe(TiltingPropellerBearingBlockEntity be, float partialTicks, PoseStack ms,
+                              MultiBufferSource buffer, int light, int overlay) {
         if (VisualizationManager.supportsVisualization(be.getLevel()))
             return;
 
@@ -39,7 +39,7 @@ public class TiltingBearingRenderer extends KineticBlockEntityRenderer<TiltingBe
         Vec3 normal = new Vec3(facing.getStepX(), facing.getStepY(), facing.getStepZ());
         Quaternionf tiltQuat = new Quaternionf(be.previousTiltQuat).slerp(be.tiltQuat, partialTicks);
 
-        SuperByteBuffer superBuffer = CachedBuffers.partial(ModPartialModels.TILTING_BEARING_PLATE, be.getBlockState());
+        SuperByteBuffer superBuffer = CachedBuffers.partial(ModPartialModels.TILTING_PROPELLER_BEARING_PLATE, be.getBlockState());
         superBuffer.translate(normal.scale(0.25));
         superBuffer.rotateCentered(tiltQuat);
         superBuffer.translate(normal.scale(-0.25));
@@ -52,7 +52,7 @@ public class TiltingBearingRenderer extends KineticBlockEntityRenderer<TiltingBe
     }
 
     @Override
-    protected SuperByteBuffer getRotatedModel(TiltingBearingBlockEntity be, BlockState state) {
+    protected SuperByteBuffer getRotatedModel(TiltingPropellerBearingBlockEntity be, BlockState state) {
         return CachedBuffers.partialFacing(AllPartialModels.SHAFT_HALF, state,
                 state.getValue(BearingBlock.FACING).getOpposite());
     }

@@ -1,22 +1,18 @@
-package net.birdsys.createtiltingcontrol.content.tilting_bearing;
+package net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing;
 
 import com.simibubi.create.content.contraptions.bearing.BearingBlock;
 import com.simibubi.create.foundation.block.IBE;
 
 import net.birdsys.createtiltingcontrol.registry.ModBlockEntities;
 import net.createmod.catnip.math.VoxelShaper;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -29,11 +25,9 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jspecify.annotations.NonNull;
 
-import java.util.List;
+public class TiltingPropellerBearingBlock extends BearingBlock implements IBE<TiltingPropellerBearingBlockEntity> {
 
-public class TiltingBearingBlock extends BearingBlock implements IBE<TiltingBearingBlockEntity> {
-
-    public TiltingBearingBlock(Properties properties) {
+    public TiltingPropellerBearingBlock(Properties properties) {
         super(properties);
     }
 
@@ -94,13 +88,13 @@ public class TiltingBearingBlock extends BearingBlock implements IBE<TiltingBear
     }
 
     @Override
-    public Class<TiltingBearingBlockEntity> getBlockEntityClass() {
-        return TiltingBearingBlockEntity.class;
+    public Class<TiltingPropellerBearingBlockEntity> getBlockEntityClass() {
+        return TiltingPropellerBearingBlockEntity.class;
     }
 
     @Override
-    public BlockEntityType<? extends TiltingBearingBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.TILTING_BEARING.get();
+    public BlockEntityType<? extends TiltingPropellerBearingBlockEntity> getBlockEntityType() {
+        return ModBlockEntities.TILTING_PROPELLER_BEARING.get();
     }
 
 }

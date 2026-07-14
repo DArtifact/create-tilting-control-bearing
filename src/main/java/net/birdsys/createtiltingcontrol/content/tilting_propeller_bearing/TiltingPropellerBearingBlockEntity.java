@@ -1,9 +1,8 @@
-package net.birdsys.createtiltingcontrol.content.tilting_bearing;
+package net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing;
 
 import java.util.List;
 
-import net.birdsys.createtiltingcontrol.registry.ModSounds;
-import net.minecraft.sounds.SoundSource;
+import net.birdsys.createtiltingcontrol.content.tilt_link.TiltLinkBehaviour;
 import org.joml.Quaternionf;
 import org.joml.Vector3d;
 
@@ -16,7 +15,8 @@ import dev.ryanhcode.sable.api.physics.handle.RigidBodyHandle;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.simulated_team.simulated.util.SimMathUtils;
 import net.birdsys.createtiltingcontrol.Config;
-import net.birdsys.createtiltingcontrol.content.tilting_bearing.menu.TiltingBearingMenu;
+import net.birdsys.createtiltingcontrol.content.TiltControlledBearing;
+import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.menu.TiltingPropellerBearingMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -32,7 +32,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.NonNull;
 
-public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity implements MenuProvider {
+public class TiltingPropellerBearingBlockEntity extends PropellerBearingBlockEntity
+        implements MenuProvider, TiltControlledBearing {
 
     public Quaternionf tiltQuat = new Quaternionf();
     public Quaternionf previousTiltQuat = new Quaternionf();
@@ -49,27 +50,12 @@ public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity imple
     private double maxTiltAngle = DEFAULT_MAX_TILT;
     private double tiltSpeed = DEFAULT_TILT_SPEED;
 
-    public static final double DEFAULT_MAX_TILT = 15.0D;
-    public static final double DEFAULT_TILT_SPEED = 2.5D;
-
-    public TiltingBearingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public TiltingPropellerBearingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         Direction facing = state.getValue(BearingBlock.FACING);
         blockNormal.set(facing.getStepX(), facing.getStepY(), facing.getStepZ());
         tiltVector.set(blockNormal);
         targetTiltVector.set(blockNormal);
-    }
-
-    public static Direction linkDirection(Direction facing, int index) {
-        int i = 0;
-        for (Direction direction : Direction.values()) {
-            if (direction.getAxis() == facing.getAxis())
-                continue;
-            if (i == index)
-                return direction;
-            i++;
-        }
-        throw new IllegalArgumentException("[TILTING CONTROL - Tilting Bearing] Link index out of range: " + index);
     }
 
     @Override
@@ -97,6 +83,11 @@ public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity imple
 
     public int getSignal(int index) {
         return signals[index];
+    }
+
+    @Override
+    public TiltLinkBehaviour[] getLinks() {
+        return links;
     }
 
     @Override
@@ -135,7 +126,7 @@ public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity imple
         for (int i = 0; i < 4; i++) {
             if (signals[i] == 0)
                 continue;
-            Direction direction = linkDirection(facing, i);
+            Direction direction = TiltControlledBearing.linkDirection(facing, i);
             lateral.add(
                     direction.getStepX() * (signals[i] / 15.0),
                     direction.getStepY() * (signals[i] / 15.0),
@@ -144,7 +135,7 @@ public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity imple
         if (lateral.lengthSquared() < 1.0e-8)
             return;
 
-        double maxTilt = Math.toRadians(Config.clampMaxTilt(maxTiltAngle));
+        double maxTilt = Math.toRadians(Config.TILTING_PROPELLER_BEARING.clampMaxTilt(maxTiltAngle));
         targetTiltVector.fma(Math.tan(maxTilt), lateral);
         targetTiltVector.normalize();
         SimMathUtils.clampIntoCone(targetTiltVector, blockNormal, maxTilt);
@@ -152,7 +143,7 @@ public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity imple
     }
 
     private void stepTiltTowardsTarget() {
-        double maxStep = Math.toRadians(Config.clampTiltSpeed(tiltSpeed));
+        double maxStep = Math.toRadians(Config.TILTING_PROPELLER_BEARING.clampTiltSpeed(tiltSpeed));
         Vector3d difference = new Vector3d(targetTiltVector).sub(tiltVector);
         if (difference.lengthSquared() > maxStep * maxStep)
             tiltVector.add(difference.normalize().mul(maxStep));
@@ -233,17 +224,20 @@ public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity imple
         super.read(compound, registries, clientPacket);
     }
 
+    @Override
     public double getMaxTiltAngle() {
-        return Config.clampMaxTilt(maxTiltAngle);
+        return Config.TILTING_PROPELLER_BEARING.clampMaxTilt(maxTiltAngle);
     }
 
+    @Override
     public double getTiltSpeed() {
-        return Config.clampTiltSpeed(tiltSpeed);
+        return Config.TILTING_PROPELLER_BEARING.clampTiltSpeed(tiltSpeed);
     }
 
+    @Override
     public void setTiltSettings(double maxTiltAngle, double tiltSpeed) {
-        double newMaxTilt = Config.clampMaxTilt(maxTiltAngle);
-        double newSpeed = Config.clampTiltSpeed(tiltSpeed);
+        double newMaxTilt = Config.TILTING_PROPELLER_BEARING.clampMaxTilt(maxTiltAngle);
+        double newSpeed = Config.TILTING_PROPELLER_BEARING.clampTiltSpeed(tiltSpeed);
         if (newMaxTilt == this.maxTiltAngle && newSpeed == this.tiltSpeed)
             return;
         this.maxTiltAngle = newMaxTilt;
@@ -256,7 +250,7 @@ public class TiltingBearingBlockEntity extends PropellerBearingBlockEntity imple
 
     @Override
     public AbstractContainerMenu createMenu(int id, @NonNull Inventory inventory, @NonNull Player player) {
-        return TiltingBearingMenu.create(id, inventory, this);
+        return TiltingPropellerBearingMenu.create(id, inventory, this);
     }
 
     @Override

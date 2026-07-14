@@ -1,6 +1,0 @@
-{
-  "selector": "create_tilting_control:tilting_bearing",
-  "properties": {
-    "sable:mass": 2.0
-  }
-}

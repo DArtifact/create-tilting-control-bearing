@@ -1,16 +1,8 @@
 package net.birdsys.createtiltingcontrol;
 
-import org.slf4j.Logger;
-
-import com.mojang.logging.LogUtils;
 import com.simibubi.create.api.stress.BlockStressValues;
 
-import net.birdsys.createtiltingcontrol.registry.ModBlockEntities;
-import net.birdsys.createtiltingcontrol.registry.ModBlocks;
-import net.birdsys.createtiltingcontrol.registry.ModCreativeTabs;
-import net.birdsys.createtiltingcontrol.registry.ModMenuTypes;
-import net.birdsys.createtiltingcontrol.registry.ModPartialModels;
-import net.birdsys.createtiltingcontrol.registry.ModSounds;
+import net.birdsys.createtiltingcontrol.registry.*;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -26,10 +18,16 @@ public class CreateTiltingControlMod {
         ModBlockEntities.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModItems.register(modEventBus);
         ModPartialModels.register();
 
-        BlockStressValues.IMPACTS.registerProvider(block ->
-                block == ModBlocks.TILTING_BEARING.get() ? Config.STRESS_IMPACT::get : null);
+        BlockStressValues.IMPACTS.registerProvider(block -> {
+            if (block == ModBlocks.TILTING_PROPELLER_BEARING.get())
+                return Config.STRESS_IMPACT::get;
+            if (block == ModBlocks.TILTING_SWIVEL_BEARING.get())
+                return Config.SWIVEL_STRESS_IMPACT::get;
+            return null;
+        });
 
         modContainer.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
         ModMenuTypes.register(modEventBus);

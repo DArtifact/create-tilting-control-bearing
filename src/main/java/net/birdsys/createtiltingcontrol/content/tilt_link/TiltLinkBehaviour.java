@@ -1,4 +1,4 @@
-package net.birdsys.createtiltingcontrol.content.tilting_bearing;
+package net.birdsys.createtiltingcontrol.content.tilt_link;
 
 import java.util.function.IntConsumer;
 

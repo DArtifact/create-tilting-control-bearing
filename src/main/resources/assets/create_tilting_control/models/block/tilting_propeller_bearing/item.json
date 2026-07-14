@@ -2,9 +2,9 @@
   "format_version": "1.21.11",
   "credit": "Made with Blockbench",
   "textures": {
-    "6_0": "create_tilting_control:block/tilting_bearing_slab",
-    "particle": "create_tilting_control:block/tilting_bearing",
-    "1_0": "create_tilting_control:block/tilting_bearing"
+    "6_0": "create_tilting_control:block/tilting_propeller_bearing_slab",
+    "particle": "create_tilting_control:block/tilting_propeller_bearing",
+    "1_0": "create_tilting_control:block/tilting_propeller_bearing"
   },
   "elements": [
     {

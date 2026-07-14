@@ -1,0 +1,6 @@
+{
+  "selector": "create_tilting_control:tilting_propeller_bearing",
+  "properties": {
+    "sable:mass": 2.0
+  }
+}

@@ -4,7 +4,7 @@
     {
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "create_tilting_control:tilting_bearing" }
+        { "type": "minecraft:item", "name": "create_tilting_control:tilting_propeller_bearing" }
       ],
       "conditions": [
         { "condition": "minecraft:survives_explosion" }

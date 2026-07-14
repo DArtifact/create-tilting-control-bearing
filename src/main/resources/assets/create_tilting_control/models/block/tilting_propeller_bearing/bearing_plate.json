@@ -2,8 +2,8 @@
   "credit": "Made with Blockbench",
   "texture_size": [32, 32],
   "textures": {
-    "0": "create_tilting_control:block/tilting_bearing_slab",
-    "particle": "create_tilting_control:block/tilting_bearing_slab"
+    "0": "create_tilting_control:block/tilting_propeller_bearing_slab",
+    "particle": "create_tilting_control:block/tilting_propeller_bearing_slab"
   },
   "elements": [
     {
