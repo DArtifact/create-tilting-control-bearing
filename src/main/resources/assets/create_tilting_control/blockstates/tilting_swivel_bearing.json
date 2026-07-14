@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "assembled=false,facing=down":  { "model": "create_tilting_control:block/tilting_swivel_bearing/block", "x": 180 },
+    "assembled=false,facing=east":  { "model": "create_tilting_control:block/tilting_swivel_bearing/block", "x": 90, "y": 90 },
+    "assembled=false,facing=north": { "model": "create_tilting_control:block/tilting_swivel_bearing/block", "x": 90 },
+    "assembled=false,facing=south": { "model": "create_tilting_control:block/tilting_swivel_bearing/block", "x": 90, "y": 180 },
+    "assembled=false,facing=up":    { "model": "create_tilting_control:block/tilting_swivel_bearing/block" },
+    "assembled=false,facing=west":  { "model": "create_tilting_control:block/tilting_swivel_bearing/block", "x": 90, "y": 270 },
+    "assembled=true,facing=down":  { "model": "create_tilting_control:block/tilting_swivel_bearing/block_assembled", "x": 180 },
+    "assembled=true,facing=east":  { "model": "create_tilting_control:block/tilting_swivel_bearing/block_assembled", "x": 90, "y": 90 },
+    "assembled=true,facing=north": { "model": "create_tilting_control:block/tilting_swivel_bearing/block_assembled", "x": 90 },
+    "assembled=true,facing=south": { "model": "create_tilting_control:block/tilting_swivel_bearing/block_assembled", "x": 90, "y": 180 },
+    "assembled=true,facing=up":    { "model": "create_tilting_control:block/tilting_swivel_bearing/block_assembled" },
+    "assembled=true,facing=west":  { "model": "create_tilting_control:block/tilting_swivel_bearing/block_assembled", "x": 90, "y": 270 }
+  }
+}

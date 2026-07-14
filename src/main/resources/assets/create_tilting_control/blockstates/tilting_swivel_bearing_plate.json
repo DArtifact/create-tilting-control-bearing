@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down":  { "model": "create_tilting_control:block/tilting_swivel_bearing/bearing_plate", "x": 180 },
+    "facing=east":  { "model": "create_tilting_control:block/tilting_swivel_bearing/bearing_plate", "x": 90, "y": 90 },
+    "facing=north": { "model": "create_tilting_control:block/tilting_swivel_bearing/bearing_plate", "x": 90 },
+    "facing=south": { "model": "create_tilting_control:block/tilting_swivel_bearing/bearing_plate", "x": 90, "y": 180 },
+    "facing=up":    { "model": "create_tilting_control:block/tilting_swivel_bearing/bearing_plate" },
+    "facing=west":  { "model": "create_tilting_control:block/tilting_swivel_bearing/bearing_plate", "x": 90, "y": 270 }
+  }
+}
