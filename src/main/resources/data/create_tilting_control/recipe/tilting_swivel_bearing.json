@@ -7,12 +7,12 @@
     "EFE"
   ],
   "key": {
-    "A": { "item": "create:brass_ingot" },
+    "A": { "item": "create:zinc_ingot" },
     "B": { "item": "minecraft:iron_block" },
     "C": { "item": "simulated:torsion_spring" },
-    "D": { "item": "create:precision_mechanism" },
-    "E": { "item": "create:brass_casing" },
-    "F": { "item": "create:shaft" }
+    "D": { "item": "create:cogwheel" },
+    "E": { "item": "create:brass_block" },
+    "F": { "item": "create:precision_mechanism" }
   },
   "result": {
     "id": "create_tilting_control:tilting_swivel_bearing",

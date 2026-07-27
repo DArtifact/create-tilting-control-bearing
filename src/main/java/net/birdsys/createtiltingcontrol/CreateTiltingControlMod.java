@@ -26,6 +26,8 @@ public class CreateTiltingControlMod {
                 return Config.STRESS_IMPACT::get;
             if (block == ModBlocks.TILTING_SWIVEL_BEARING.get())
                 return Config.SWIVEL_STRESS_IMPACT::get;
+            if (block == ModBlocks.GIMBAL_PROPELLER_BEARING.get())
+                return Config.GIMBAL_STRESS_IMPACT::get;
             return null;
         });
 

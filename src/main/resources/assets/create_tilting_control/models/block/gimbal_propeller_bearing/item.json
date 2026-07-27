@@ -1,0 +1,8 @@
+{
+  "parent": "create_tilting_control:block/tilting_propeller_bearing/item",
+  "textures": {
+    "6_0": "create_tilting_control:block/gimbal_propeller_bearing_slab",
+    "particle": "create_tilting_control:block/gimbal_propeller_bearing",
+    "1_0": "create_tilting_control:block/gimbal_propeller_bearing"
+  }
+}

@@ -1,6 +1,7 @@
 package net.birdsys.createtiltingcontrol.registry;
 
 import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
+import net.birdsys.createtiltingcontrol.content.config_menu.ConfigureGyroSettingsPacket;
 import net.birdsys.createtiltingcontrol.content.config_menu.ConfigureTiltSettingsPacket;
 import net.birdsys.createtiltingcontrol.content.config_menu.ConfigureTurretModePacket;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -22,5 +23,9 @@ public class ModPackets {
                 ConfigureTurretModePacket.TYPE,
                 ConfigureTurretModePacket.STREAM_CODEC,
                 ConfigureTurretModePacket::handle);
+        registrar.playToServer(
+                ConfigureGyroSettingsPacket.TYPE,
+                ConfigureGyroSettingsPacket.STREAM_CODEC,
+                ConfigureGyroSettingsPacket::handle);
     }
 }

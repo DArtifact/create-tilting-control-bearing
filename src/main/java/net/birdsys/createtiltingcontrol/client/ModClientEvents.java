@@ -6,6 +6,9 @@ import com.simibubi.create.foundation.item.TooltipModifier;
 import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import dev.simulated_team.simulated.content.blocks.swivel_bearing.link_block.SwivelBearingPlateBlockRenderer;
 import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
+import net.birdsys.createtiltingcontrol.client.gimbal_propeller.GimbalPropellerBearingRenderer;
+import net.birdsys.createtiltingcontrol.client.gimbal_propeller.GimbalPropellerBearingScreen;
+import net.birdsys.createtiltingcontrol.client.gimbal_propeller.GimbalPropellerBearingVisual;
 import net.birdsys.createtiltingcontrol.client.tilting_propeller.TiltingPropellerBearingRenderer;
 import net.birdsys.createtiltingcontrol.client.tilting_propeller.TiltingPropellerBearingScreen;
 import net.birdsys.createtiltingcontrol.client.tilting_propeller.TiltingPropellerBearingVisual;
@@ -33,12 +36,17 @@ public class ModClientEvents {
                 .factory(TiltingPropellerBearingVisual::new)
                 .apply();
 
+        SimpleBlockEntityVisualizer.builder(ModBlockEntities.GIMBAL_PROPELLER_BEARING.get())
+                .factory(GimbalPropellerBearingVisual::new)
+                .apply();
+
         SimpleBlockEntityVisualizer.builder(ModBlockEntities.TILTING_SWIVEL_BEARING.get())
                 .factory(TiltingSwivelBearingVisual::new)
                 .apply();
 
         event.enqueueWork(() -> {
             registerKineticTooltip(ModBlocks.TILTING_PROPELLER_BEARING_ITEM.get());
+            registerKineticTooltip(ModBlocks.GIMBAL_PROPELLER_BEARING_ITEM.get());
             registerKineticTooltip(ModBlocks.TILTING_SWIVEL_BEARING_ITEM.get());
         });
     }
@@ -53,6 +61,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.TILTING_PROPELLER_BEARING.get(), TiltingPropellerBearingRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.GIMBAL_PROPELLER_BEARING.get(), GimbalPropellerBearingRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.TILTING_SWIVEL_BEARING.get(), TiltingSwivelBearingRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.TILTING_SWIVEL_BEARING_PLATE.get(),
                 SwivelBearingPlateBlockRenderer::new);
@@ -61,6 +70,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.TILTING_PROPELLER_BEARING.get(), TiltingPropellerBearingScreen::new);
+        event.register(ModMenuTypes.GIMBAL_PROPELLER_BEARING.get(), GimbalPropellerBearingScreen::new);
         event.register(ModMenuTypes.TILTING_SWIVEL_BEARING.get(), TiltingSwivelBearingScreen::new);
     }
 }

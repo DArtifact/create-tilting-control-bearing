@@ -8,6 +8,7 @@ import com.simibubi.create.content.contraptions.bearing.BearingBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 
 import dev.engine_room.flywheel.api.visualization.VisualizationManager;
+import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.TiltingPropellerBearingBlockEntity;
 import net.birdsys.createtiltingcontrol.registry.ModPartialModels;
 import net.createmod.catnip.math.AngleHelper;
@@ -27,6 +28,10 @@ public class TiltingPropellerBearingRenderer extends KineticBlockEntityRenderer<
         super(context);
     }
 
+    protected PartialModel plateModel() {
+        return ModPartialModels.TILTING_PROPELLER_BEARING_PLATE;
+    }
+
     @Override
     protected void renderSafe(TiltingPropellerBearingBlockEntity be, float partialTicks, PoseStack ms,
                               MultiBufferSource buffer, int light, int overlay) {
@@ -39,7 +44,7 @@ public class TiltingPropellerBearingRenderer extends KineticBlockEntityRenderer<
         Vec3 normal = new Vec3(facing.getStepX(), facing.getStepY(), facing.getStepZ());
         Quaternionf tiltQuat = new Quaternionf(be.previousTiltQuat).slerp(be.tiltQuat, partialTicks);
 
-        SuperByteBuffer superBuffer = CachedBuffers.partial(ModPartialModels.TILTING_PROPELLER_BEARING_PLATE, be.getBlockState());
+        SuperByteBuffer superBuffer = CachedBuffers.partial(plateModel(), be.getBlockState());
         superBuffer.translate(normal.scale(0.25));
         superBuffer.rotateCentered(tiltQuat);
         superBuffer.translate(normal.scale(-0.25));

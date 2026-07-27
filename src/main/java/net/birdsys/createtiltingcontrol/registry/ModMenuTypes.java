@@ -1,6 +1,7 @@
 package net.birdsys.createtiltingcontrol.registry;
 
 import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
+import net.birdsys.createtiltingcontrol.content.gimbal_propeller_bearing.menu.GimbalPropellerBearingMenu;
 import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.menu.TiltingPropellerBearingMenu;
 import net.birdsys.createtiltingcontrol.content.tilting_swivel_bearing.menu.TiltingSwivelBearingMenu;
 import net.minecraft.core.registries.Registries;
@@ -18,6 +19,11 @@ public class ModMenuTypes {
             MENU_TYPES.register("tilting_propeller_bearing",
                     () -> IMenuTypeExtension.create((id, inv, buf) ->
                             new TiltingPropellerBearingMenu(ModMenuTypes.TILTING_PROPELLER_BEARING.get(), id, inv, buf)));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<GimbalPropellerBearingMenu>> GIMBAL_PROPELLER_BEARING =
+            MENU_TYPES.register("gimbal_propeller_bearing",
+                    () -> IMenuTypeExtension.create((id, inv, buf) ->
+                            new GimbalPropellerBearingMenu(ModMenuTypes.GIMBAL_PROPELLER_BEARING.get(), id, inv, buf)));
 
     public static final DeferredHolder<MenuType<?>, MenuType<TiltingSwivelBearingMenu>> TILTING_SWIVEL_BEARING =
             MENU_TYPES.register("tilting_swivel_bearing",

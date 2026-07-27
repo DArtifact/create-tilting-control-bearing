@@ -19,6 +19,7 @@ public class ModCreativeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.SOAR_V2_MUSIC_DISC.get());
                         output.accept(ModBlocks.TILTING_PROPELLER_BEARING_ITEM.get());
+                        output.accept(ModBlocks.GIMBAL_PROPELLER_BEARING_ITEM.get());
                         output.accept(ModBlocks.TILTING_SWIVEL_BEARING_ITEM.get());
                     })
                     .build());

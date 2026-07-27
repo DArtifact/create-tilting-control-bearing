@@ -11,6 +11,7 @@ import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import dev.engine_room.flywheel.lib.instance.InstanceTypes;
 import dev.engine_room.flywheel.lib.instance.TransformedInstance;
 import dev.engine_room.flywheel.lib.model.Models;
+import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
 import dev.simulated_team.simulated.util.SimMathUtils;
 import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.TiltingPropellerBearingBlockEntity;
@@ -33,8 +34,12 @@ public class TiltingPropellerBearingVisual extends OrientedRotatingVisual<Tiltin
         this.rotationAxis = Axis.of(Direction.get(Direction.AxisDirection.POSITIVE, rotationAxis()).step());
         this.blockOrientation = SimMathUtils.getBlockStateOrientation(facing);
         this.topInstance = instancerProvider()
-                .instancer(InstanceTypes.TRANSFORMED, Models.partial(ModPartialModels.TILTING_PROPELLER_BEARING_PLATE))
+                .instancer(InstanceTypes.TRANSFORMED, Models.partial(plateModel()))
                 .createInstance();
+    }
+
+    protected PartialModel plateModel() {
+        return ModPartialModels.TILTING_PROPELLER_BEARING_PLATE;
     }
 
     @Override

@@ -28,6 +28,10 @@ public abstract class AbstractTiltConfigMenu<T extends TiltControlledBearing> ex
         super(type, id, inv, be);
     }
 
+    public int bgHeight() {
+        return BG_HEIGHT;
+    }
+
     @OnlyIn(Dist.CLIENT)
     protected static <B extends TiltControlledBearing> B readBlockEntity(RegistryFriendlyByteBuf extraData,
                                                                          Class<B> bearingClass) {
@@ -55,7 +59,7 @@ public abstract class AbstractTiltConfigMenu<T extends TiltControlledBearing> ex
     @Override
     protected void addSlots() {
         int invX = (BG_WIDTH - 162) / 2;
-        int invY = BG_HEIGHT + 22;
+        int invY = bgHeight() + 22;
         addPlayerSlots(invX, invY);
 
         int slot = 0;

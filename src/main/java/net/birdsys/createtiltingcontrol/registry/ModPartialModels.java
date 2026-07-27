@@ -5,6 +5,7 @@ import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
 
 public class ModPartialModels {
     public static final PartialModel TILTING_PROPELLER_BEARING_PLATE = block("tilting_propeller_bearing/bearing_plate");
+    public static final PartialModel GIMBAL_PROPELLER_BEARING_PLATE = block("gimbal_propeller_bearing/bearing_plate");
     public static final PartialModel TILTING_SWIVEL_BEARING_COG = block("tilting_swivel_bearing/ironcog");
 
     private static PartialModel block(String path) {

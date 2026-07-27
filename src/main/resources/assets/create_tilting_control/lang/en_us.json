@@ -26,6 +26,26 @@
   "create_tilting_control.gui.tilting_swivel_bearing.mode.turret.desc": "Tilt directions rotate with the contraption. Relative pitch to where it currently faces. Ideal for aiming.",
   "create_tilting_control.gui.tilting_swivel_bearing.mode.hint": "Click to switch",
 
+  "create_tilting_control.gui.gimbal_propeller_bearing.max_tilt": "Max Tilt",
+  "create_tilting_control.gui.gimbal_propeller_bearing.tilt_speed": "Tilt Speed",
+  "create_tilting_control.gui.gimbal_propeller_bearing.gyro_strength": "Gyro Str.",
+  "create_tilting_control.gui.gimbal_propeller_bearing.gyro_cap": "Cap:",
+  "create_tilting_control.gui.gimbal_propeller_bearing.on_tilt_mult": "On-Tilt Gyro",
+  "create_tilting_control.gui.gimbal_propeller_bearing.info.title": "Gimbal Propeller Bearing Usage",
+  "create_tilting_control.gui.gimbal_propeller_bearing.info.line1": "Each side of the bearing shows a colored gem, matching the columns above:",
+  "create_tilting_control.gui.gimbal_propeller_bearing.info.line2": "§cRedstone§7,  §9Lapis§7,  §bDiamond§7,  §aEmerald§7",
+  "create_tilting_control.gui.gimbal_propeller_bearing.info.line3": "Set a Redstone Link frequency under a gem to bind that side. Powering it tilts the propeller toward that side.",
+  "create_tilting_control.gui.gimbal_propeller_bearing.info.line4": "Gyro Strength stabilizes the whole contraption and adds stress. It is capped by the bearing's current RPM; the full cap unlocks well below max speed.",
+  "create_tilting_control.gui.gimbal_propeller_bearing.info.line5": "On-Tilt Gyro sets how much gyro authority remains around the commanded axis while a tilt input is active.",
+  "create_tilting_control.gui.gimbal_propeller_bearing.info.line6": "100% keeps full stabilization; 0% fully frees the axis you are tilting on.",
+
+  "create_tilting_control.gimbal.goggles.header": "Gyroscope:",
+  "create_tilting_control.gimbal.goggles.inactive": "Inactive",
+  "create_tilting_control.gimbal.goggles.strength": "Strength: %s",
+  "create_tilting_control.gimbal.goggles.strength_capped": "Strength: %s (RPM-capped, set to %s)",
+  "create_tilting_control.gimbal.goggles.stress": "Gyro Stress Impact: %s su/rpm",
+  "create_tilting_control.gimbal.goggles.authority": "Authority: %s%%",
+
   "create_tilting_control.gui.direction.north": "R.",
   "create_tilting_control.gui.direction.south": "L.",
   "create_tilting_control.gui.direction.east": "E.",
@@ -43,6 +63,17 @@
   "create_tilting_control.configuration.minTiltSpeed": "Minimum Selectable Tilt Speed",
   "create_tilting_control.configuration.maxTiltSpeed": "Maximum Selectable Tilt Speed",
   "create_tilting_control.configuration.stressImpact": "Stress Impact per Sail",
+  "create_tilting_control.configuration.gimbalPropellerBearing": "Gimbal Propeller Bearing",
+  "create_tilting_control.configuration.gyroRpmMult": "Gyro Stress Impact per Strength",
+  "create_tilting_control.configuration.maxGyroStrength": "Maximum Gyro Strength",
+  "create_tilting_control.configuration.gyroCapReferenceRpm": "Gyro Cap Reference RPM",
+  "create_tilting_control.configuration.gyroStiffness": "Gyro Stiffness",
+  "create_tilting_control.configuration.gyroDamping": "Gyro Damping",
+  "create_tilting_control.configuration.gyroHalfStrength": "Gyro Half-Authority Strength",
+  "create_tilting_control.configuration.gyroReferenceMass": "Gyro Reference Mass",
+  "create_tilting_control.configuration.gyroMassExponent": "Gyro Mass Exponent",
+  "create_tilting_control.configuration.thrustYawCompensation": "Thrust Yaw Compensation",
+  "create_tilting_control.configuration.gyroYawDamping": "Gyro Yaw Damping",
 
   "block.create_tilting_control.tilting_propeller_bearing": "Tilting Propeller Bearing",
   "block.create_tilting_control.tilting_propeller_bearing.tooltip.summary": "A _Propeller Bearing_ whose spinning propeller can be _tilted_ in any direction",
@@ -54,7 +85,6 @@
   "block.create_tilting_control.tilting_propeller_bearing.tooltip.behaviour3": "Tilts the propeller toward that side. A _stronger signal_ means _more tilt_, up to _Max Tilt_. Opposing sides cancel out.",
 
   "block.create_tilting_control.tilting_swivel_bearing_plate": "Tilting Swivel Bearing Plate",
-
   "block.create_tilting_control.tilting_swivel_bearing": "Tilting Swivel Bearing",
   "block.create_tilting_control.tilting_swivel_bearing.tooltip.summary": "A _Swivel Bearing_ whose simulated attached structure can additionally be _tilted_ in any direction, while still receiving _rotation_ through the bearing",
   "block.create_tilting_control.tilting_swivel_bearing.tooltip.condition1": "When R-Clicked with an empty hand",
@@ -62,5 +92,14 @@
   "block.create_tilting_control.tilting_swivel_bearing.tooltip.condition2": "When Shift + R-Clicked",
   "block.create_tilting_control.tilting_swivel_bearing.tooltip.behaviour2": "Opens the configuration screen: Which contains the four link frequencies used for tilting controls, and some misc. configurations",
   "block.create_tilting_control.tilting_swivel_bearing.tooltip.condition3": "When a side's Redstone Link is powered",
-  "block.create_tilting_control.tilting_swivel_bearing.tooltip.behaviour3": "Tilts the attached structure toward that side. A _stronger signal_ means _more tilt_, up to _Max Tilt_. Plain redstone next to the bearing controls the _swivel lock_"
+  "block.create_tilting_control.tilting_swivel_bearing.tooltip.behaviour3": "Tilts the attached structure toward that side. A _stronger signal_ means _more tilt_, up to _Max Tilt_. Plain redstone next to the bearing controls the _swivel lock_",
+
+  "block.create_tilting_control.gimbal_propeller_bearing": "Gimbal Propeller Bearing",
+  "block.create_tilting_control.gimbal_propeller_bearing.tooltip.summary": "A _Tilting Propeller Bearing_ with a built-in _gyroscope_ that keeps the whole simulated contraption _stable_",
+  "block.create_tilting_control.gimbal_propeller_bearing.tooltip.condition1": "When R-Clicked with an empty hand",
+  "block.create_tilting_control.gimbal_propeller_bearing.tooltip.behaviour1": "Assembles the propeller contraption. Click again while running to disassemble.",
+  "block.create_tilting_control.gimbal_propeller_bearing.tooltip.condition2": "When Shift + R-Clicked",
+  "block.create_tilting_control.gimbal_propeller_bearing.tooltip.behaviour2": "Opens the configuration screen: link frequencies, tilt settings, _Gyro Strength_ and the _On-Tilt Gyro_ multiplier",
+  "block.create_tilting_control.gimbal_propeller_bearing.tooltip.condition3": "While the Gyroscope is active",
+  "block.create_tilting_control.gimbal_propeller_bearing.tooltip.behaviour3": "Stabilizes the contraption it is mounted on. Adds _stress_ per point of strength, on top of the per-sail stress. Higher _RPM_ raises the strength cap. Tilt inputs temporarily reduce the gyro on the tilted axis."
 }

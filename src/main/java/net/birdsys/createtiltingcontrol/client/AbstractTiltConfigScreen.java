@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static net.birdsys.createtiltingcontrol.content.config_menu.AbstractTiltConfigMenu.BG_HEIGHT;
 import static net.birdsys.createtiltingcontrol.content.config_menu.AbstractTiltConfigMenu.BG_WIDTH;
 
 public abstract class AbstractTiltConfigScreen<M extends AbstractTiltConfigMenu<?>>
@@ -34,8 +33,8 @@ public abstract class AbstractTiltConfigScreen<M extends AbstractTiltConfigMenu<
     private static final int TITLE_X = 7, TITLE_Y = 5;
     private static final int LABEL_ROW_Y = 17;
     private static final int COLUMN_STRIDE = 44, SLOT_W = 18;
-    private static final int CAPTION_Y = 71;
-    private static final int FIELD_Y = 82, FIELD_W = 52, FIELD_H = 18;
+    protected static final int CAPTION_Y = 71;
+    protected static final int FIELD_Y = 82, FIELD_W = 52, FIELD_H = 18;
 
     protected ScrollInput maxTiltInput;
     protected ScrollInput tiltSpeedInput;
@@ -56,16 +55,19 @@ public abstract class AbstractTiltConfigScreen<M extends AbstractTiltConfigMenu<
 
     protected void addExtraWidgets(int x, int y) {}
 
+    protected void onReset() {}
+
     protected MutableComponent guiText(String suffix) {
         return Component.translatable(translationRoot() + "." + suffix);
     }
 
     @Override
     protected void init() {
-        setWindowSize(BG_WIDTH, BG_HEIGHT + 4 + AllGuiTextures.PLAYER_INVENTORY.getHeight());
+        setWindowSize(BG_WIDTH, menu.bgHeight() + 4 + AllGuiTextures.PLAYER_INVENTORY.getHeight());
         super.init();
         int x = leftPos;
         int y = topPos;
+        int bgHeight = menu.bgHeight();
 
         TiltControlledBearing be = menu.contentHolder;
         double currentMaxTilt = maxTiltInput != null ? maxTiltInput.getState()
@@ -103,14 +105,14 @@ public abstract class AbstractTiltConfigScreen<M extends AbstractTiltConfigMenu<
                 .setState((int) Math.round(currentSpeed * 10));
         tiltSpeedInput.onChanged();
 
-        IconButton infoButton = new IconButton(x + BG_WIDTH - 48, y + BG_HEIGHT - 24, AllIcons.I_VIEW_SCHEDULE);
+        IconButton infoButton = new IconButton(x + BG_WIDTH - 48, y + bgHeight - 24, AllIcons.I_VIEW_SCHEDULE);
         infoButton.setToolTip(guiText("info.title").withStyle(ChatFormatting.GOLD));
         List<Component> infoLines = new ArrayList<>();
         for (int i = 1; i <= infoLineCount(); i++)
             infoLines.add(guiText("info.line" + i).withStyle(ChatFormatting.GRAY));
         infoButton.getToolTip().addAll(infoLines);
 
-        IconButton resetButton = new IconButton(x + BG_WIDTH - 192, y + BG_HEIGHT - 24, AllIcons.I_TRASH);
+        IconButton resetButton = new IconButton(x + BG_WIDTH - 192, y + bgHeight - 24, AllIcons.I_TRASH);
         resetButton.withCallback(() -> {
             menu.clearContents();
             menu.sendClearPacket();
@@ -118,8 +120,9 @@ public abstract class AbstractTiltConfigScreen<M extends AbstractTiltConfigMenu<
             maxTiltInput.onChanged();
             tiltSpeedInput.setState((int) Math.round(TiltControlledBearing.DEFAULT_TILT_SPEED * 10));
             tiltSpeedInput.onChanged();
+            onReset();
         });
-        IconButton confirmButton = new IconButton(x + BG_WIDTH - 24, y + BG_HEIGHT - 24, AllIcons.I_CONFIRM);
+        IconButton confirmButton = new IconButton(x + BG_WIDTH - 24, y + bgHeight - 24, AllIcons.I_CONFIRM);
         confirmButton.withCallback(() -> {
             assert Objects.requireNonNull(minecraft).player != null;
             minecraft.player.closeContainer();
@@ -138,13 +141,14 @@ public abstract class AbstractTiltConfigScreen<M extends AbstractTiltConfigMenu<
 
     @Override
     protected void renderBg(@NonNull GuiGraphics graphics, float partialTicks, int mouseX, int mouseY) {
+        int bgHeight = menu.bgHeight();
         int invX = leftPos + ((BG_WIDTH - AllGuiTextures.PLAYER_INVENTORY.getWidth()) / 2) - 1;
-        int invY = topPos + BG_HEIGHT + 4;
+        int invY = topPos + bgHeight + 4;
         renderPlayerInventory(graphics, invX, invY);
 
         int x = leftPos;
         int y = topPos;
-        graphics.blit(background(), x, y, 0, 0, BG_WIDTH, BG_HEIGHT);
+        graphics.blit(background(), x, y, 0, 0, BG_WIDTH, bgHeight);
         graphics.drawString(font, title, x + TITLE_X, y + TITLE_Y, 0x3F3F3F, false);
 
         // Direction label over each frequency column (depends on the block's facing).

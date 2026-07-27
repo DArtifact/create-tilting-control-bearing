@@ -1,6 +1,7 @@
 package net.birdsys.createtiltingcontrol.registry;
 
 import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
+import net.birdsys.createtiltingcontrol.content.gimbal_propeller_bearing.GimbalPropellerBearingBlock;
 import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.TiltingPropellerBearingBlock;
 import net.birdsys.createtiltingcontrol.content.tilting_swivel_bearing.TiltingSwivelBearingBlock;
 import net.birdsys.createtiltingcontrol.content.tilting_swivel_bearing.plate.TiltingSwivelBearingPlateBlock;
@@ -27,6 +28,16 @@ public class ModBlocks {
 
     public static final DeferredItem<BlockItem> TILTING_PROPELLER_BEARING_ITEM = BLOCK_ITEMS.register("tilting_propeller_bearing",
             () -> new BlockItem(TILTING_PROPELLER_BEARING.get(), new Item.Properties()));
+
+    public static final DeferredBlock<GimbalPropellerBearingBlock> GIMBAL_PROPELLER_BEARING = BLOCKS.register("gimbal_propeller_bearing",
+            () -> new GimbalPropellerBearingBlock(Block.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .sound(SoundType.COPPER)
+                    .strength(2.0f, 4.0f)
+                    .noOcclusion()));
+
+    public static final DeferredItem<BlockItem> GIMBAL_PROPELLER_BEARING_ITEM = BLOCK_ITEMS.register("gimbal_propeller_bearing",
+            () -> new BlockItem(GIMBAL_PROPELLER_BEARING.get(), new Item.Properties()));
 
     public static final DeferredBlock<TiltingSwivelBearingBlock> TILTING_SWIVEL_BEARING =
             BLOCKS.register("tilting_swivel_bearing",
