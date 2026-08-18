@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.birdsys.createtiltingcontrol.foundation.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8.5",
+  "client": [
+    "client.MouseCaptureHandlerMixin",
+    "client.JoystickKeyboardHandlerMixin",
+    "client.ThrottleLeverGameRendererMixin"
+  ],
+  "mixins": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

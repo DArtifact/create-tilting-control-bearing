@@ -1,0 +1,6 @@
+{
+  "selector": "create_tilting_control:bidirectional_throttle_lever",
+  "properties": {
+    "sable:mass": 0.0
+  }
+}

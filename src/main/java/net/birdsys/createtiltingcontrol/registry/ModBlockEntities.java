@@ -1,7 +1,9 @@
 package net.birdsys.createtiltingcontrol.registry;
 
 import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
+import net.birdsys.createtiltingcontrol.content.bidirectional_throttle_lever.BidirectionalThrottleLeverBlockEntity;
 import net.birdsys.createtiltingcontrol.content.gimbal_propeller_bearing.GimbalPropellerBearingBlockEntity;
+import net.birdsys.createtiltingcontrol.content.linked_joystick.LinkedJoystickBlockEntity;
 import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.TiltingPropellerBearingBlockEntity;
 import net.birdsys.createtiltingcontrol.content.tilting_swivel_bearing.TiltingSwivelBearingBlockEntity;
 import net.birdsys.createtiltingcontrol.content.tilting_swivel_bearing.plate.TiltingSwivelBearingPlateBlockEntity;
@@ -38,6 +40,18 @@ public class ModBlockEntities {
                     () -> BlockEntityType.Builder.of(
                             (pos, state) -> new TiltingSwivelBearingPlateBlockEntity(ModBlockEntities.TILTING_SWIVEL_BEARING_PLATE.get(), pos, state),
                             ModBlocks.TILTING_SWIVEL_BEARING_PLATE.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LinkedJoystickBlockEntity>> LINKED_JOYSTICK =
+            BLOCK_ENTITY_TYPES.register("linked_joystick",
+                    () -> BlockEntityType.Builder.of(
+                            (pos, state) -> new LinkedJoystickBlockEntity(ModBlockEntities.LINKED_JOYSTICK.get(), pos, state),
+                            ModBlocks.LINKED_JOYSTICK.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BidirectionalThrottleLeverBlockEntity>> BIDIRECTIONAL_THROTTLE_LEVER =
+            BLOCK_ENTITY_TYPES.register("bidirectional_throttle_lever",
+                    () -> BlockEntityType.Builder.of(
+                            (pos, state) -> new BidirectionalThrottleLeverBlockEntity(ModBlockEntities.BIDIRECTIONAL_THROTTLE_LEVER.get(), pos, state),
+                            ModBlocks.BIDIRECTIONAL_THROTTLE_LEVER.get()).build(null));
 
     public static void register(IEventBus modEventBus) {
         BLOCK_ENTITY_TYPES.addAlias(

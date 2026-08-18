@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " l ",
+    "tpt",
+    "aca"
+  ],
+  "key": {
+    "l": { "item": "minecraft:lever" },
+    "t": { "item": "create:redstone_link" },
+    "p": { "item": "create:electron_tube" },
+    "a": { "item": "create:transmitter" },
+    "c": { "item": "create:brass_casing" }
+  },
+  "result": {
+    "id": "create_tilting_control:linked_joystick",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "create_tilting_control:block/bidirectional_throttle_lever/base" },
+    "facing=east":  { "model": "create_tilting_control:block/bidirectional_throttle_lever/base", "y": 90 },
+    "facing=south": { "model": "create_tilting_control:block/bidirectional_throttle_lever/base", "y": 180 },
+    "facing=west":  { "model": "create_tilting_control:block/bidirectional_throttle_lever/base", "y": 270 }
+  }
+}

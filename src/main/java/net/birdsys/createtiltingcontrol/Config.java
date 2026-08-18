@@ -56,6 +56,7 @@ public class Config {
     public static final ModConfigSpec.DoubleValue GIMBAL_GYRO_MASS_EXPONENT;
     public static final ModConfigSpec.DoubleValue GIMBAL_GYRO_YAW_DAMPING;
     public static final ModConfigSpec.DoubleValue GIMBAL_THRUST_YAW_COMPENSATION;
+    public static final ModConfigSpec.DoubleValue JOYSTICK_LINK_RANGE;
 
     static {
         BUILDER.comment("Settings for the Tilting Propeller Bearing").push("tiltingPropellerBearing");
@@ -125,6 +126,13 @@ public class Config {
                         "scaled by the gyro's authority. This does not hold a heading, it only",
                         "bleeds off unwanted spin. Set to 0 to leave yaw untouched.")
                 .defineInRange("gyroYawDamping", 0.6D, 0.0D, 64.0D);
+        BUILDER.pop();
+
+        BUILDER.comment("Settings for the Linked Joystick").push("linkedJoystick");
+        JOYSTICK_LINK_RANGE = BUILDER
+                .comment("Maximum distance (blocks) a player may move from a Linked Joystick before",
+                        "the link is automatically dissolved.")
+                .defineInRange("linkRange", 12.0D, 2.0D, 64.0D);
         BUILDER.pop();
     }
 

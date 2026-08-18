@@ -1,0 +1,224 @@
+{
+  "variants": {
+    "facing=up,rotation=south,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base"
+    },
+    "facing=down,rotation=south,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 180,
+      "y": 180
+    },
+    "facing=up,rotation=west,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "y": 90
+    },
+    "facing=down,rotation=west,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 180,
+      "y": 270
+    },
+    "facing=up,rotation=north,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "y": 180
+    },
+    "facing=down,rotation=north,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 180
+    },
+    "facing=up,rotation=east,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "y": 270
+    },
+    "facing=down,rotation=east,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 180,
+      "y": 90
+    },
+    "facing=north,rotation=south,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 90
+    },
+    "facing=north,rotation=west,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 90
+    },
+    "facing=north,rotation=north,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 270,
+      "y": 180
+    },
+    "facing=north,rotation=east,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 270,
+      "y": 180
+    },
+    "facing=south,rotation=south,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=west,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=north,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 270
+    },
+    "facing=south,rotation=east,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 270
+    },
+    "facing=east,rotation=south,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=west,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=north,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 270,
+      "y": 270
+    },
+    "facing=east,rotation=east,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 270,
+      "y": 270
+    },
+    "facing=west,rotation=south,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=west,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=north,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base",
+      "x": 270,
+      "y": 90
+    },
+    "facing=west,rotation=east,linked=false": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun",
+      "x": 270,
+      "y": 90
+    },
+    "facing=up,rotation=south,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked"
+    },
+    "facing=down,rotation=south,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 180,
+      "y": 180
+    },
+    "facing=up,rotation=west,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "y": 90
+    },
+    "facing=down,rotation=west,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 180,
+      "y": 270
+    },
+    "facing=up,rotation=north,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "y": 180
+    },
+    "facing=down,rotation=north,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 180
+    },
+    "facing=up,rotation=east,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "y": 270
+    },
+    "facing=down,rotation=east,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 180,
+      "y": 90
+    },
+    "facing=north,rotation=south,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 90
+    },
+    "facing=north,rotation=west,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 90
+    },
+    "facing=north,rotation=north,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 270,
+      "y": 180
+    },
+    "facing=north,rotation=east,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 270,
+      "y": 180
+    },
+    "facing=south,rotation=south,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=west,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=north,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 270
+    },
+    "facing=south,rotation=east,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 270
+    },
+    "facing=east,rotation=south,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=west,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=north,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 270,
+      "y": 270
+    },
+    "facing=east,rotation=east,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 270,
+      "y": 270
+    },
+    "facing=west,rotation=south,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=west,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=north,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_linked",
+      "x": 270,
+      "y": 90
+    },
+    "facing=west,rotation=east,linked=true": {
+      "model": "create_tilting_control:block/linked_joystick/base_spun_linked",
+      "x": 270,
+      "y": 90
+    }
+  }
+}

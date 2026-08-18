@@ -27,6 +27,9 @@ No attachments!
 
 '''
 
+[[mixins]]
+config="create_tilting_control.mixins.json"
+
 [[dependencies.create_tilting_control]]
     modId="neoforge"
     type="required"

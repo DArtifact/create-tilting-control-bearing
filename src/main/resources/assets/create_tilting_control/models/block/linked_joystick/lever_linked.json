@@ -1,0 +1,6 @@
+{
+  "parent": "create_tilting_control:block/linked_joystick/lever",
+  "textures": {
+    "all": "create_tilting_control:block/linked_joystick/joystick_linked"
+  }
+}

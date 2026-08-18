@@ -21,6 +21,8 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.TILTING_PROPELLER_BEARING_ITEM.get());
                         output.accept(ModBlocks.GIMBAL_PROPELLER_BEARING_ITEM.get());
                         output.accept(ModBlocks.TILTING_SWIVEL_BEARING_ITEM.get());
+                        output.accept(ModBlocks.LINKED_JOYSTICK_ITEM.get());
+                        output.accept(ModBlocks.BIDIRECTIONAL_THROTTLE_LEVER_ITEM.get());
                     })
                     .build());
 

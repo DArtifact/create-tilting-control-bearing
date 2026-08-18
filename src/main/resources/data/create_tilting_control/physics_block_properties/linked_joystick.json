@@ -1,0 +1,6 @@
+{
+  "selector": "create_tilting_control:linked_joystick",
+  "properties": {
+    "sable:mass": 0.0
+  }
+}

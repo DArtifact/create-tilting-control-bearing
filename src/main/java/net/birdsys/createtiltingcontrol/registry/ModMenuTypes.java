@@ -1,7 +1,9 @@
 package net.birdsys.createtiltingcontrol.registry;
 
 import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
+import net.birdsys.createtiltingcontrol.content.bidirectional_throttle_lever.menu.BidirectionalThrottleLeverMenu;
 import net.birdsys.createtiltingcontrol.content.gimbal_propeller_bearing.menu.GimbalPropellerBearingMenu;
+import net.birdsys.createtiltingcontrol.content.linked_joystick.menu.LinkedJoystickMenu;
 import net.birdsys.createtiltingcontrol.content.tilting_propeller_bearing.menu.TiltingPropellerBearingMenu;
 import net.birdsys.createtiltingcontrol.content.tilting_swivel_bearing.menu.TiltingSwivelBearingMenu;
 import net.minecraft.core.registries.Registries;
@@ -29,6 +31,16 @@ public class ModMenuTypes {
             MENU_TYPES.register("tilting_swivel_bearing",
                     () -> IMenuTypeExtension.create((id, inv, buf) ->
                             new TiltingSwivelBearingMenu(ModMenuTypes.TILTING_SWIVEL_BEARING.get(), id, inv, buf)));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<LinkedJoystickMenu>> LINKED_JOYSTICK =
+            MENU_TYPES.register("linked_joystick",
+                    () -> IMenuTypeExtension.create((id, inv, buf) ->
+                            new LinkedJoystickMenu(ModMenuTypes.LINKED_JOYSTICK.get(), id, inv, buf)));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<BidirectionalThrottleLeverMenu>> BIDIRECTIONAL_THROTTLE_LEVER =
+            MENU_TYPES.register("bidirectional_throttle_lever",
+                    () -> IMenuTypeExtension.create((id, inv, buf) ->
+                            new BidirectionalThrottleLeverMenu(ModMenuTypes.BIDIRECTIONAL_THROTTLE_LEVER.get(), id, inv, buf)));
 
     public static void register(IEventBus modEventBus) {
         MENU_TYPES.register(modEventBus);

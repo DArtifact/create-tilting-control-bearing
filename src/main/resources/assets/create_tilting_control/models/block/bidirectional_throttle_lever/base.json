@@ -1,0 +1,36 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "create_tilting_control:block/bidirectional_throttle_lever/lever",
+		"all": "create_tilting_control:block/bidirectional_throttle_lever/lever"
+	},
+	"elements": [
+		{
+			"name": "plate",
+			"from": [4.5, 0, 2],
+			"to": [11.5, 3, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0.5, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 7.5, 4, 9], "texture": "#all"},
+				"east": {"uv": [0, 6, 6, 7.5], "texture": "#all"},
+				"south": {"uv": [0, 9, 4, 10.5], "texture": "#all"},
+				"west": {"uv": [0, 6, 6, 7.5], "texture": "#all"},
+				"up": {"uv": [0, 0, 3.5, 6], "texture": "#all"},
+				"down": {"uv": [3.5, 0, 7, 6], "texture": "#all"}
+			}
+		},
+		{
+			"name": "hub",
+			"from": [5, 3, 5.5],
+			"to": [11, 6, 10.5],
+			"faces": {
+				"north": {"uv": [7, 0, 10, 1.5], "texture": "#all"},
+				"east": {"uv": [7, 0, 9.5, 1.5], "texture": "#all"},
+				"south": {"uv": [7, 0, 10, 1.5], "texture": "#all"},
+				"west": {"uv": [7, 0, 9.5, 1.5], "texture": "#all"},
+				"up": {"uv": [7, 1.5, 10, 4], "texture": "#all"}
+			}
+		}
+	]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " l ",
+    " t ",
+    " c "
+  ],
+  "key": {
+    "l": { "item": "minecraft:lever" },
+    "t": { "item": "create:electron_tube" },
+    "c": { "item": "create:brass_ingot" }
+  },
+  "result": {
+    "id": "create_tilting_control:bidirectional_throttle_lever",
+    "count": 1
+  }
+}

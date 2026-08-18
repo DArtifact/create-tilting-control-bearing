@@ -6,9 +6,17 @@ import com.simibubi.create.foundation.item.TooltipModifier;
 import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import dev.simulated_team.simulated.content.blocks.swivel_bearing.link_block.SwivelBearingPlateBlockRenderer;
 import net.birdsys.createtiltingcontrol.CreateTiltingControlMod;
+import net.birdsys.createtiltingcontrol.client.bidirectional_throttle_lever.BidirectionalThrottleLeverRenderer;
+import net.birdsys.createtiltingcontrol.client.bidirectional_throttle_lever.BidirectionalThrottleLeverScreen;
+import net.birdsys.createtiltingcontrol.client.bidirectional_throttle_lever.BidirectionalThrottleLeverVisual;
+import net.birdsys.createtiltingcontrol.client.bidirectional_throttle_lever.ThrottleHudOverlay;
 import net.birdsys.createtiltingcontrol.client.gimbal_propeller.GimbalPropellerBearingRenderer;
 import net.birdsys.createtiltingcontrol.client.gimbal_propeller.GimbalPropellerBearingScreen;
 import net.birdsys.createtiltingcontrol.client.gimbal_propeller.GimbalPropellerBearingVisual;
+import net.birdsys.createtiltingcontrol.client.linked_joystick.JoystickHudOverlay;
+import net.birdsys.createtiltingcontrol.client.linked_joystick.LinkedJoystickRenderer;
+import net.birdsys.createtiltingcontrol.client.linked_joystick.LinkedJoystickScreen;
+import net.birdsys.createtiltingcontrol.client.linked_joystick.LinkedJoystickVisual;
 import net.birdsys.createtiltingcontrol.client.tilting_propeller.TiltingPropellerBearingRenderer;
 import net.birdsys.createtiltingcontrol.client.tilting_propeller.TiltingPropellerBearingScreen;
 import net.birdsys.createtiltingcontrol.client.tilting_propeller.TiltingPropellerBearingVisual;
@@ -25,6 +33,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 @EventBusSubscriber(modid = CreateTiltingControlMod.MODID, value = Dist.CLIENT)
@@ -42,6 +51,15 @@ public class ModClientEvents {
 
         SimpleBlockEntityVisualizer.builder(ModBlockEntities.TILTING_SWIVEL_BEARING.get())
                 .factory(TiltingSwivelBearingVisual::new)
+                .apply();
+
+        SimpleBlockEntityVisualizer.builder(ModBlockEntities.LINKED_JOYSTICK.get())
+                .factory(LinkedJoystickVisual::new)
+                .apply();
+
+        SimpleBlockEntityVisualizer.builder(ModBlockEntities.BIDIRECTIONAL_THROTTLE_LEVER.get())
+                .factory(BidirectionalThrottleLeverVisual::new)
+                .neverSkipVanillaRender()
                 .apply();
 
         event.enqueueWork(() -> {
@@ -65,6 +83,9 @@ public class ModClientEvents {
         event.registerBlockEntityRenderer(ModBlockEntities.TILTING_SWIVEL_BEARING.get(), TiltingSwivelBearingRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.TILTING_SWIVEL_BEARING_PLATE.get(),
                 SwivelBearingPlateBlockRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.LINKED_JOYSTICK.get(), LinkedJoystickRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.BIDIRECTIONAL_THROTTLE_LEVER.get(),
+                BidirectionalThrottleLeverRenderer::new);
     }
 
     @SubscribeEvent
@@ -72,5 +93,13 @@ public class ModClientEvents {
         event.register(ModMenuTypes.TILTING_PROPELLER_BEARING.get(), TiltingPropellerBearingScreen::new);
         event.register(ModMenuTypes.GIMBAL_PROPELLER_BEARING.get(), GimbalPropellerBearingScreen::new);
         event.register(ModMenuTypes.TILTING_SWIVEL_BEARING.get(), TiltingSwivelBearingScreen::new);
+        event.register(ModMenuTypes.LINKED_JOYSTICK.get(), LinkedJoystickScreen::new);
+        event.register(ModMenuTypes.BIDIRECTIONAL_THROTTLE_LEVER.get(), BidirectionalThrottleLeverScreen::new);
+    }
+
+    @SubscribeEvent
+    public static void registerGuiLayers(RegisterGuiLayersEvent event) {
+        event.registerAboveAll(CreateTiltingControlMod.loc("joystick_hud"), JoystickHudOverlay::render);
+        event.registerAboveAll(CreateTiltingControlMod.loc("throttle_hud"), ThrottleHudOverlay::render);
     }
 }
